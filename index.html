@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La Taberna «SALUD» | FFXIV</title>
+<style>
+:root{--gold:#d5a84f;--gold2:#f1d38b;--cream:#f4e3c3;--dark:#0a0604;--wood:#1a0e08}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#090503;color:var(--cream);font-family:Georgia,"Times New Roman",serif}a{color:inherit;text-decoration:none}.wrap{width:min(1380px,calc(100% - 32px));margin:auto}
+
+/* NAV: asset is decorative background; labels stay HTML */
+.topnav{position:fixed;top:0;left:0;right:0;z-index:50;height:74px;display:flex;align-items:center;background:rgba(5,3,2,.68);backdrop-filter:blur(6px)}
+.navframe{position:absolute;inset:4px 12px;background:url("assets/marcos/marco-menu-inicio.png") center/45% 100% no-repeat;pointer-events:none;opacity:.98}
+.navcontent{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:45px;width:100%;font-size:.92rem;text-transform:uppercase;text-shadow:0 2px 4px #000}
+
+
+/* HERO */
+.hero{min-height:760px;position:relative;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid #6f4920}
+.hero:before{content:"";position:absolute;inset:0;background:url("assets/hero-taberna.png") center/cover no-repeat}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,2,1,.08),rgba(4,2,1,.20) 44%,rgba(4,2,1,.36)),linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.26))}
+.heroin{position:relative;z-index:2;display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:34px;padding-top:70px}
+.logo{width:min(540px,100%);filter:drop-shadow(0 18px 24px #000c)}
+.herotext{text-align:center;text-shadow:0 4px 12px #000}
+.kicker{letter-spacing:.24em;text-transform:uppercase;color:#e1c27d;font-size:.8rem}
+h1{font-size:clamp(4rem,7vw,7rem);line-height:.85;margin:16px 0 8px;color:#f2d7a0;text-shadow:0 4px 0 #75431c,0 9px 18px #000}
+h1 span{display:block;font-size:.34em;letter-spacing:.18em;margin-top:22px;color:#e2b963}
+.motto{font-size:1.25rem;font-style:italic;margin:28px 0}
+.discordbtn{display:inline-flex;align-items:center;justify-content:center;padding:15px 28px;border:1px solid #d0aa59;background:linear-gradient(#5850c6,#27216d);box-shadow:0 0 24px #534bda88;border-radius:9px;font:800 1rem Arial,sans-serif}
+.server{margin:24px auto 0;max-width:690px;display:grid;grid-template-columns:repeat(3,1fr);background:#090604dd;border:1px solid #a37432}
+.server div{padding:13px;border-right:1px solid #63431e}.server div:last-child{border:0}.server small{display:block;color:#bca57e;text-transform:uppercase;font-size:.65rem}.server b{color:#fff0d3}
+
+/* MAIN */
+main{background:radial-gradient(circle at 50% 0,#24130b,#090503 58%);padding:22px 0 38px}
+.row{display:grid;grid-template-columns:1fr 1.05fr;gap:20px;margin-bottom:20px}
+.assetbox{position:relative;min-height:315px}
+.assetbg{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
+.content{position:relative;z-index:2;padding:48px 54px}
+.light{color:#28170d}.light h2{color:#28170d}.dark h2{color:#e5bd6a}
+.requirements{
+    position:relative;
+    width:100%;
+
+    /* mantiene una proporción horizontal */
+    aspect-ratio:1.30 / 1;
+
+    min-height:0;
+}
+
+.requirements .assetbg{
+    position:absolute;
+
+    width:150%;
+    height:150%;
+
+    top:0;
+    left:0;
+
+    transform:none;
+
+    object-fit:contain;
+}
+
+h2{text-transform:uppercase;letter-spacing:.04em;margin:0 0 18px}
+
+/* activities */
+.activities{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 12px}.act{text-align:center;padding:8px}.act img{width:150px;height:auto;object-fit:contain;display:block;margin:0 auto 6px;filter:drop-shadow(0 5px 7px #0008)}.act b{display:block;color:#f0d49b;font-size:.92rem}.act span{font-size:.78rem;color:#cfb998}
+
+/* BLOQUE INFERIOR */
+.lower{
+    display:grid;
+    grid-template-columns:60% 40%;
+    gap:28px;
+    align-items:center;
+}
+
+/* RANGOS */
+.ranksbox{
+    position:relative;
+    min-height:520px;
+}
+
+.ranksbox .assetbg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:fill;
+}
+
+.rankimg{
+    position:absolute;
+    z-index:2;
+    width:95%;
+    height:auto;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    object-fit:contain;
+    padding:0;
+}
+
+/* COLUMNA DERECHA */
+.side{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:35px;
+    width:100%;
+}
+
+/* REQUISITOS */
+.requirements{
+    position:relative;
+    width:100%;
+	top:-50%;
+    left:-30%;
+    min-height:0;
+}
+
+.requirements .assetbg{
+    position:relative;
+    width:150%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+}
+
+/* INVITACIÓN */
+.invite{
+    position:relative;
+    width:100%;
+    min-height:0;
+    background:transparent;
+    border:0;
+    overflow:visible;
+}
+
+.inviteframe{
+    position:relative;
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+}
+
+/* SOBRE NOSOTROS */
+
+.sobre-nosotros .content{
+    padding:55px 65px 50px;
+}
+
+.sobre-nosotros h2{
+    margin:0 0 22px;
+    font-size:1.65rem;
+    line-height:1.1;
+}
+
+.sobre-nosotros p{
+    margin:0 0 18px;
+    font-size:1.05rem;
+    line-height:1.45;
+    max-width:95%;
+}
+
+.sobre-nosotros .bienvenida{
+    margin-top:24px;
+    font-weight:bold;
+    font-style:italic;
+    font-size:1.1rem;
+}
+
+/* separators */
+.sep{height:40px;display:flex;justify-content:center;align-items:center;margin:5px 0 18px}.sep img{max-height:32px;max-width:75%;object-fit:contain}
+
+footer{padding:24px 0;border-top:1px solid #6b461e;background:#070402}.foot{display:flex;justify-content:space-between;align-items:center;gap:20px}.foot strong{color:#e4bf70;font-size:1.35rem}.foot em{color:#d7c19c}
+
+@media(max-width:900px){.navcontent{gap:14px;font-size:.78rem}.heroin,.row,.lower{grid-template-columns:1fr}.hero{min-height:900px}.logo{max-width:430px;margin:auto;display:block}.activities{grid-template-columns:repeat(2,1fr)}.ranksbox{min-height:460px}.requirements{width:72%}.invite{width:86%}}
+@media(max-width:600px){.topnav{height:62px}.navcontent a:not(.navdiscord):nth-of-type(n+4){display:none}.hero{min-height:820px}.heroin{padding-top:80px}.herotext h1{font-size:3.7rem}.server{grid-template-columns:1fr}.server div{border-right:0;border-bottom:1px solid #63431e}.content{padding:38px 30px}.activities{grid-template-columns:1fr 1fr}.ranksbox{min-height:390px}.rankimg{width:98%}.requirements{width:92%}.invite{width:100%}.foot{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="navframe"></div>
+  <div class="navcontent wrap">
+    <a href="#inicio">⌂ Inicio</a>
+    <a href="#fc">La FC</a>
+    <a href="#actividades">Actividades</a>
+    <a href="#rangos">Rangos</a>
+    <a href="#unete">Únete</a>
+    <a href="#" class="navdiscord discord-link">Discord</a>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="wrap heroin">
+    <div><img src="assets/logo-la-taberna.png" class="logo" alt="Logo La Taberna"></div>
+    <div class="herotext">
+      <div class="kicker">Free Company · Final Fantasy XIV</div>
+      <h1>LA TABERNA <span>« SALUD »</span></h1>
+      <div class="motto">Toda aventura merece una buena historia al volver.</div>
+      <a href="#" class="discordbtn discord-link">☯ &nbsp; ÚNETE A NUESTRO DISCORD &nbsp; →</a>
+      <div class="server">
+        <div><small>Data Center</small><b id="dc">Crystal</b></div>
+        <div><small>World</small><b id="world">Balmung</b></div>
+        <div><small>Idioma</small><b>Español</b></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <section class="row" id="fc">
+    <article class="assetbox light sobre-nosotros">
+    <img class="assetbg" src="assets/marcos/marco-claro.png" alt="">
+
+		<div class="content">
+			<h2>⚜ Sobre nosotros</h2>
+
+			<p>
+				<b>La Taberna</b> es una Free Company hispanohablante creada para
+				reunir aventureros de todos los rincones de Eorzea.
+			</p>
+
+			<p>
+				Un lugar para quienes buscan compañía, apoyo, diversión y grandes
+				momentos. Aquí todos tienen un espacio, ya seas nuevo o veterano.
+			</p>
+
+			<p class="bienvenida">
+				¡Bienvenido a La Taberna!
+			</p>
+		</div>
+	</article>
+
+    <article class="assetbox dark" id="actividades">
+      <img class="assetbg" src="assets/marcos/marco-oscuro.png" alt="">
+      <div class="content">
+        <div class="activities">
+          <div class="act"><img src="assets/actividades/raids.png"></div>
+          <div class="act"><img src="assets/actividades/nuevos.png"></div>
+          <div class="act"><img src="assets/actividades/exploracion.png"></div>
+          <div class="act"><img src="assets/actividades/glamour.png"></div>
+          <div class="act"><img src="assets/actividades/social.png"></div>
+          <div class="act"><img src="assets/actividades/taberna.png"></div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <div class="sep"><img src="assets/separadores/separate-1.png" alt=""></div>
+
+  <section class="lower" id="rangos">
+    <article class="assetbox ranksbox dark">
+      <img class="assetbg" src="assets/marcos/marco-oscuro.png" alt="">
+      <img class="rankimg" src="assets/ui/estandartes.png" alt="Rangos de La Taberna">
+    </article>
+
+    <div class="side">
+      <article class="assetbox requirements light">
+        <img class="assetbg" src="assets/marcos/marco-requisitos.png" alt="">
+      </article>
+
+      <article class="invite" id="unete">
+        <img class="inviteframe" src="assets/marcos/marco-invite.png" alt="">
+        
+      </article>
+    </div>
+  </section>
+
+  <div class="sep"><img src="assets/separadores/separate-2.png" alt=""></div>
+
+</div>
+</main>
+
+<footer>
+<div class="wrap foot">
+  <strong>🍺 LA TABERNA «SALUD»</strong>
+  <em>“Siéntate, pide algo y cuéntanos tu aventura.”</em>
+  <span>Final Fantasy XIV · Comunidad no oficial</span>
+</div>
+</footer>
+
+<script>
+const CONFIG={
+  discord:"https://discord.gg/fbHPZxps5T",
+  dataCenter:"Hyperion",
+  world:"Ultros"
+};
+document.getElementById("dc").textContent=CONFIG.dataCenter;
+document.getElementById("world").textContent=CONFIG.world;
+document.querySelectorAll(".discord-link").forEach(a=>{
+  a.href=CONFIG.discord;a.target="_blank";a.rel="noopener";
+  a.addEventListener("click",e=>{
+    if(CONFIG.discord.includes("TU-INVITACION")){
+      e.preventDefault();
+      alert("Configura el enlace de Discord al final de index.html.");
+    }
+  });
+});
+</script>
+</body>
+</html>
